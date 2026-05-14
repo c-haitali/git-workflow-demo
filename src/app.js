@@ -101,7 +101,7 @@ const OPENAPI_SPEC = {
         tags: ['Tasks'],
         summary: 'Delete a task by id',
         parameters: [
-          { name: 'task_id', in: 'path', required: true, schema: { type: 'integer' } },
+          { name: 'taskId', in: 'path', required: true, schema: { type: 'integer' } },
         ],
         responses: {
           204: { description: 'Task deleted' },
