@@ -97,6 +97,22 @@ const OPENAPI_SPEC = {
           },
         },
       },
+      delete: {
+        tags: ['Tasks'],
+        summary: 'Delete a task by id',
+        parameters: [
+          { name: 'task_id', in: 'path', required: true, schema: { type: 'integer' } },
+        ],
+        responses: {
+          204: { description: 'Task deleted' },
+          404: {
+            description: 'Task not found',
+            content: {
+              'application/json': { schema: { $ref: '#/components/schemas/ErrorResponse' } },
+            },
+          },
+        },
+      },
     },
     '/api/health': {
       get: {
@@ -190,6 +206,7 @@ function createApp() {
         'GET /api/tasks',
         'GET /api/tasks/<task_id>',
         'POST /api/tasks',
+        'DELETE /api/tasks/<task_id>',
       ],
       docs: '/docs',
       openapi: '/openapi.json',
