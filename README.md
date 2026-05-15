@@ -1,6 +1,6 @@
-# AI-Assisted Git Workflow
+# Claude-Assisted Git Workflow
 
-This guide walks through how a developer named Aarav adds a Delete Task API feature using an AI-assisted Git workflow, and how reviewer Priya reviews and merges it — all from the terminal.
+This guide walks through how a developer named Aarav adds a Delete Task API feature using an Claude-assisted Git workflow, and how reviewer Priya reviews and merges it — all from the terminal.
 
 ---
 
@@ -64,7 +64,7 @@ Claude reads the existing codebase, follows the patterns already in place, and g
 
 ---
 
-## Step 4: AI-Assisted Code Review Before Commit
+## Step 4: Claude-Assisted Code Review Before Commit
 
 Before committing, Aarav asks Claude to review what was just generated.
 
@@ -138,7 +138,7 @@ gh pr checkout 1
 
 ---
 
-## Step 9: AI-Assisted PR Review
+## Step 9: Claude-Assisted PR Review
 
 Instead of reading through every line manually, Priya pipes the PR diff into Claude.
 
@@ -229,7 +229,7 @@ gh pr review --comment -b "@priya issue fixed"
 
 ## Step 15: Reviewer Approves the PR
 
-Priya does one final AI-assisted review.
+Priya does one final Claude-assisted review.
 
 ```bash
 gh pr diff 1 | claude review
@@ -243,4 +243,8 @@ gh pr merge --squash
 ```
 
 ---
+
+# Observations
+
+Throughout this workflow, Claude acted as a silent but active collaborator at every stage. Aarav never had to write the Delete Task API from scratch — a single plain-English prompt was enough for Claude to generate changes across multiple files while respecting the project's existing patterns. The CLAUDE.md file proved its value immediately, keeping commit messages consistent without any manual reminders. The most telling moment came during Priya's review, when Claude caught an OpenAPI parameter mismatch that neither Aarav nor Priya had noticed — a subtle inconsistency that could have caused silent failures in production. What stood out most was that the entire workflow, from cloning to merging, never left the terminal, and at no point did Claude replace human judgment. Aarav approved every commit, Priya made the final merge call — Claude only made each of those decisions faster and better informed.
 
