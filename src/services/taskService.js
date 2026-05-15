@@ -33,11 +33,4 @@ function createTask(payload) {
   return { ...task };
 }
 
-function deleteTask(taskId) {
-  const index = _tasks.findIndex(t => t.id === taskId);
-  if (index === -1) return false;
-  _tasks.splice(index, 1);
-  return true;
-}
-
-module.exports = { listTasks, getTask, createTask, deleteTask, resetTasks };
+module.exports = { listTasks, getTask, createTask, resetTasks };

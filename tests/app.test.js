@@ -25,7 +25,6 @@ test('root route documents available apis', async () => {
       'GET /api/tasks',
       'GET /api/tasks/<task_id>',
       'POST /api/tasks',
-      'DELETE /api/tasks/<task_id>',
     ],
     docs: '/docs',
     openapi: '/openapi.json',
@@ -66,18 +65,6 @@ test('create task adds new task', async () => {
   expect(res.body.title).toBe('Prepare sprint demo deck');
 });
 
-test('delete task removes it and returns 204', async () => {
-  const res = await request(app).delete('/api/tasks/1');
-  expect(res.status).toBe(204);
-  const check = await request(app).get('/api/tasks/1');
-  expect(check.status).toBe(404);
-});
-
-test('delete task returns 404 for unknown id', async () => {
-  const res = await request(app).delete('/api/tasks/999');
-  expect(res.status).toBe(404);
-  expect(res.body).toHaveProperty('error');
-});
 
 test('create task rejects invalid payload', async () => {
   const res = await request(app)

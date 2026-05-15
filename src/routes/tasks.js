@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const { listTasks, getTask, createTask, deleteTask } = require('../services/taskService');
+const { listTasks, getTask, createTask } = require('../services/taskService');
 
 const router = Router();
 
@@ -36,12 +36,6 @@ router.post('/api/tasks', (req, res) => {
   }
   const task = createTask(payload);
   res.status(201).json(task);
-});
-
-router.delete('/api/tasks/:taskId', (req, res) => {
-  const taskId = parseInt(req.params.taskId, 10);
-  if (!deleteTask(taskId)) return res.status(404).json({ error: 'Task not found' });
-  res.status(204).send();
 });
 
 module.exports = router;
